@@ -1,5 +1,9 @@
 # Created by https://www.gitignore.io/api/android,intellij
 
+### Kotlin ###
+
+.kotlin
+
 ### Android ###
 # Built application files
 *.apk
@@ -20,6 +24,9 @@ out/
 .gradle/
 build/
 
+# dokka + ank apidocs merge to sources
+apidocs/
+
 # Local configuration file (sdk path, etc)
 local.properties
 
@@ -37,12 +44,8 @@ captures/
 
 # Intellij
 *.iml
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/gradle.xml
-.idea/libraries
-.idea/markdown-navigator
-.idea/
+.idea/*
+!.idea/vcs.xml
 
 # Keystore files
 *.jks
@@ -82,6 +85,9 @@ gen-external-apklibs
 .idea/**/gradle.xml
 .idea/**/libraries
 
+#Kotlintest
+**/.kotlintest
+
 # Mongo Explorer plugin:
 .idea/**/mongoSettings.xml
 
@@ -105,6 +111,15 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+# Jekyll
+_site
+.sass-cache
+vendor
+.bundle
+
+# Ruby
+Gemfile.lock
+
 ### Intellij Patch ###
 # Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
 
@@ -123,3 +138,13 @@ reports/
 .DS_Store
 
 target/
+
+.bash_profile
+**/.kotlintest/
+
+
+_site/
+docs/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata

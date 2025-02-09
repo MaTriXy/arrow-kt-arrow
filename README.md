@@ -1,130 +1,48 @@
-<img height="100" src="https://avatars2.githubusercontent.com/u/29458023?v=4&amp;s=200" width="100">
+<a href="https://arrow-kt.io" title="Arrow website"><img src="https://arrow-kt.io/img/arrow-brand.svg" width="200" alt=""></a>
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.arrow-kt/arrow-core/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.arrow-kt/arrow-core)
-[![Build Status](https://travis-ci.org/arrow-kt/arrow.svg?branch=master)](https://travis-ci.org/arrow-kt/arrow/)
-[![Kotlin version badge](https://img.shields.io/badge/kotlin-1.2.41-blue.svg)](http://kotlinlang.org/)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![codecov](https://codecov.io/gh/arrow-kt/arrow/branch/master/graph/badge.svg)](https://codecov.io/gh/arrow-kt/arrow)
+[![Maven Central](https://img.shields.io/maven-central/v/io.arrow-kt/arrow-core?color=4caf50&label=latest%20release)](https://central.sonatype.com/search?q=g:io.arrow-kt)
+[![Kotlin version](https://img.shields.io/badge/Kotlin-1.8.10-blue)](https://kotlinlang.org/docs/whatsnew18.html)
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![StackOverflow](https://img.shields.io/badge/arrow--kt-grey.svg?logo=stackoverflow)](https://stackoverflow.com/questions/tagged/arrow-kt)
+[![Twitter](https://img.shields.io/twitter/follow/arrow_kt?color=blue&style=flat)](https://twitter.com/arrow_kt)
 
 Λrrow is a library for Typed Functional Programming in Kotlin.
-It includes the most popular data types, type classes and abstractions such as `Option`, `Try`, `Either`, `IO`, `Functor`, `Applicative`, `Monad` and many more empowering users to define pure FP apps and libraries built atop higher order abstractions. Use the below list to learn more about Λrrow's main features.
 
-- [Documentation](http://arrow-kt.io)
-- [Patterns](http://arrow-kt.io/docs/patterns/glossary/): tutorials and approaches to day-to-day challenges using FP 
-- [Type classes](http://arrow-kt.io/docs/typeclasses/intro/): defining behaviors for data
-- [Data types](http://arrow-kt.io/docs/datatypes/intro/): common abstractions
-- [Effects](http://arrow-kt.io/docs/effects/io/): interfacing with external systems
-- [Optics](http://arrow-kt.io/docs/optics/iso/): inspecting and modifying data structures
+Arrow aims to provide a [*lingua franca*](https://en.wikipedia.org/wiki/Lingua_franca) of interfaces
+and abstractions across Kotlin libraries. For this, it includes the most popular data types such
+as `Option`, and `Either`, functional operators such as `zipOrAccumulate`, and computation
+blocks to empower users to write pure FP apps and libraries built atop higher order abstractions.
 
-#### Curated external links
+## [Documentation](http://arrow-kt.io)
 
-- [Projects and Examples](http://arrow-kt.io/docs/quickstart/projects/)
-- [Blogs and Presentations](http://arrow-kt.io/docs/quickstart/blogs/)
+- [Quickstart and setup](https://arrow-kt.io/learn/quickstart/)
+- [Typed errors](https://arrow-kt.io/learn/typed-errors/)
+- [Coroutines and resources](https://arrow-kt.io/learn/coroutines/)
+- [Resilience](https://arrow-kt.io/learn/resilience/)
+- [Immutable data](https://arrow-kt.io/learn/immutable-data/)
+- [Collections and functions](https://arrow-kt.io/learn/collections-functions/)
 
-# Basic Setup
+The documentation is hosted in a [separate repository](https://github.com/arrow-kt/arrow-website).
 
-Make sure to have the latest version of JDK 1.8 installed.
+## Join Us
 
-Add it in your root `build.gradle` at the end of repositories.
+Arrow is an inclusive community powered by awesome individuals like you. As an actively growing
+ecosystem, Arrow and its associated libraries and toolsets are in need of new contributors! We have
+issues suited for all levels, from entry to advanced, and our maintainers are happy to provide 1:1
+mentoring. All are welcome in Arrow.
 
-```groovy
-allprojects {
-    repositories {
-        jcenter()
-    }
-}
-```
+If you’re looking to contribute, have questions, or want to keep up-to-date about what’s happening,
+please follow us here and say hello!
 
-Add the dependencies into the project's `build.gradle`
+- [Arrow on Twitter](https://twitter.com/arrow_kt)
+- [#arrow on Kotlin Slack](https://kotlinlang.slack.com/messages/C5UPMM0A0)
+- [#arrow-contributors on Kotlin Slack](https://kotlinlang.slack.com/archives/C8UK6RTHU)
+- [Arrow on Gitter](https://gitter.im/arrow-kt/Lobby)
 
-```groovy
-dependencies {
-    compile 'io.arrow-kt:arrow-core:0.7.2'
-    compile 'io.arrow-kt:arrow-syntax:0.7.2'
-    compile 'io.arrow-kt:arrow-typeclasses:0.7.2' 
-    compile 'io.arrow-kt:arrow-data:0.7.2' 
-    compile 'io.arrow-kt:arrow-instances-core:0.7.2'
-    compile 'io.arrow-kt:arrow-instances-data:0.7.2'
-    kapt    'io.arrow-kt:arrow-annotations-processor:0.7.2' 
-    
-    compile 'io.arrow-kt:arrow-free:0.7.2' //optional
-    compile 'io.arrow-kt:arrow-mtl:0.7.2' //optional
-    compile 'io.arrow-kt:arrow-effects:0.7.2' //optional
-    compile 'io.arrow-kt:arrow-effects-rx2:0.7.2' //optional
-    compile 'io.arrow-kt:arrow-effects-kotlinx-coroutines:0.7.2' //optional
-    compile 'io.arrow-kt:arrow-optics:0.7.2' //optional
-    compile 'io.arrow-kt:arrow-generic:0.7.2' //optional
-    compile 'io.arrow-kt:arrow-recursion:0.7.2' //optional
-}
-```
+Find more details in [CONTRIBUTING](CONTRIBUTING.md).
 
-# Additional Setup
-
-For projects that wish to use their own `@higherkind`, `@optics` and other meta programming facilities provided by Λrrow
-the setup below is also required:
-
-Add the dependencies into the project's `build.gradle`
-
-```groovy
-apply plugin: 'kotlin-kapt' //optional
-apply from: rootProject.file('gradle/generated-kotlin-sources.gradle') //optional
-
-dependencies {
-    ...
-    kapt    'io.arrow-kt:arrow-annotations-processor:0.7.2' //optional
-    ...
-}
-```
-
-JVM projects:
-
-`gradle/generated-kotlin-sources.gradle`
-```groovy
-apply plugin: 'idea'
-
-idea {
-    module {
-        sourceDirs += files(
-            'build/generated/source/kapt/main',
-            'build/generated/source/kaptKotlin/main',
-            'build/tmp/kapt/main/kotlinGenerated')
-        generatedSourceDirs += files(
-            'build/generated/source/kapt/main',
-            'build/generated/source/kaptKotlin/main',
-            'build/tmp/kapt/main/kotlinGenerated')
-    }
-}
-```
-
-Android projects:
-
-`gradle/generated-kotlin-sources.gradle`
-```groovy
-apply plugin: 'idea'
-
-idea {
-    module {
-        sourceDirs += files(
-                'build/generated/source/kapt/main',
-                'build/generated/source/kapt/debug',
-                'build/generated/source/kapt/release',
-                'build/generated/source/kaptKotlin/main',
-                'build/generated/source/kaptKotlin/debug',
-                'build/generated/source/kaptKotlin/release',
-                'build/tmp/kapt/main/kotlinGenerated')
-        generatedSourceDirs += files(
-                'build/generated/source/kapt/main',
-                'build/generated/source/kapt/debug',
-                'build/generated/source/kapt/release',
-                'build/generated/source/kaptKotlin/main',
-                'build/generated/source/kaptKotlin/debug',
-                'build/generated/source/kaptKotlin/release',
-                'build/tmp/kapt/main/kotlinGenerated')
-    }
-}
-```
-
-# License
+## License
 
     Copyright (C) 2017 The Λrrow Authors
 
@@ -139,4 +57,3 @@ idea {
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-

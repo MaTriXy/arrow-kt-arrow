@@ -1,0 +1,8 @@
+public final class arrow/optics/ReflectionKt {
+	public static final fun getEvery (Lkotlin/reflect/KProperty1;)Larrow/optics/PTraversal;
+	public static final fun getLens (Lkotlin/reflect/KProperty1;)Larrow/optics/PLens;
+	public static final fun getOptional (Lkotlin/reflect/KProperty1;)Larrow/optics/POptional;
+	public static final fun getValues (Lkotlin/reflect/KProperty1;)Larrow/optics/PTraversal;
+	public static final fun instance (Lkotlin/reflect/KClass;)Larrow/optics/PPrism;
+}
+
